@@ -12,7 +12,7 @@
                         <label>Name</label>
                     </td>
                     <td>
-                        <input type="text" placeholder="Enter Product Name..." class="medium" />
+                        <input type="text" placeholder="Thêm sản phẩm..." class="medium" />
                     </td>
                 </tr>
 				<tr>
