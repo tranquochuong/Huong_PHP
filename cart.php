@@ -24,7 +24,7 @@
   <div class="wrap">
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt="" /></a>
+				<a href="index.php"><img src="images/logo.png" alt="" /></a>
 			</div>
 			  <div class="header_top_right">
 			    <div class="search_box">
@@ -41,7 +41,7 @@
 						</div>
 			      </div>
 		   <div class="login">
-		   	   <span><a href="login.html">Login</a></span>
+		   	   <span><a href="login.php">Login</a></span>
 		   </div>
 		 <div class="clear"></div>
 	 </div>
@@ -49,11 +49,11 @@
  </div>
 <div class="menu">
 	<ul id="dc_mega-menu-orange" class="dc_mm-orange">
-	  <li><a href="index.html">Home</a></li>
-	  <li><a href="products.html">Products</a> </li>
-	  <li><a href="topbrands.html">Top Brands</a></li>
-	  <li><a href="cart.html">Cart</a></li>
-	  <li><a href="contact.html">Contact</a> </li>
+	  <li><a href="index.php">Home</a></li>
+	  <li><a href="products.php">Products</a> </li>
+	  <li><a href="topbrands.php">Top Brands</a></li>
+	  <li><a href="cart.php">Cart</a></li>
+	  <li><a href="contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
 </div>
@@ -159,10 +159,10 @@
 					</div>
 					<div class="shopping">
 						<div class="shopleft">
-							<a href="index.html"> <img src="images/shop.png" alt="" /></a>
+							<a href="index.php"> <img src="images/shop.png" alt="" /></a>
 						</div>
 						<div class="shopright">
-							<a href="login.html"> <img src="images/check.png" alt="" /></a>
+							<a href="login.php"> <img src="images/check.png" alt="" /></a>
 						</div>
 					</div>
     	</div>  	
@@ -186,21 +186,21 @@
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="faq.html">Customer Service</a></li>
+						<li><a href="about.php">About Us</a></li>
+						<li><a href="faq.php">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html"><span>Site Map</span></a></li>
-						<li><a href="preview-2.html"><span>Search Terms</span></a></li>
+						<li><a href="contact.php"><span>Site Map</span></a></li>
+						<li><a href="preview-2.php"><span>Search Terms</span></a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
+							<li><a href="contact.php">Sign In</a></li>
+							<li><a href="index.php">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="faq.html">Help</a></li>
+							<li><a href="faq.php">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">

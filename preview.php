@@ -24,7 +24,7 @@
   <div class="wrap">
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt="" /></a>
+				<a href="index.php"><img src="images/logo.png" alt="" /></a>
 			</div>
 			  <div class="header_top_right">
 			    <div class="search_box">
@@ -41,7 +41,7 @@
 						</div>
 			      </div>
 		   <div class="login">
-		   	   <span><a href="login.html">Login</a></span>
+		   	   <span><a href="login.php">Login</a></span>
 		   </div>
 		 <div class="clear"></div>
 	 </div>
@@ -49,11 +49,11 @@
  </div>
 <div class="menu">
 	<ul id="dc_mega-menu-orange" class="dc_mm-orange">
-	  <li><a href="index.html">Home</a></li>
-	  <li><a href="products.html">Products</a> </li>
-	  <li><a href="topbrands.html">Top Brands</a></li>
-	   <li><a href="cart.html">Cart</a></li>
-	  <li><a href="contact.html">Contact</a> </li>
+	  <li><a href="index.php">Home</a></li>
+	  <li><a href="products.php">Products</a> </li>
+	  <li><a href="topbrands.php">Top Brands</a></li>
+	   <li><a href="cart.php">Cart</a></li>
+	  <li><a href="contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
 </div>
@@ -74,7 +74,7 @@
 						<p>Brand:<span>Samsnumg</span></p>
 					</div>
 				<div class="add-cart">
-					<form action="cart.html" method="post">
+					<form action="cart.php" method="post">
 						<input type="number" class="buyfield" name="" value="1"/>
 						<input type="submit" class="buysubmit" name="submit" value="Buy Now"/>
 					</form>				
@@ -90,18 +90,18 @@
 				<div class="rightsidebar span_3_of_1">
 					<h2>CATEGORIES</h2>
 					<ul>
-				      <li><a href="productbycat.html">Mobile Phones</a></li>
-				      <li><a href="productbycat.html">Desktop</a></li>
-				      <li><a href="productbycat.html">Laptop</a></li>
-				      <li><a href="productbycat.html">Accessories</a></li>
-				      <li><a href="productbycat.html#">Software</a></li>
-					   <li><a href="productbycat.html">Sports & Fitness</a></li>
-					   <li><a href="productbycat.html">Footwear</a></li>
-					   <li><a href="productbycat.html">Jewellery</a></li>
-					   <li><a href="productbycat.html">Clothing</a></li>
-					   <li><a href="productbycat.html">Home Decor & Kitchen</a></li>
-					   <li><a href="productbycat.html">Beauty & Healthcare</a></li>
-					   <li><a href="productbycat.html">Toys, Kids & Babies</a></li>
+				      <li><a href="productbycat.php">Mobile Phones</a></li>
+				      <li><a href="productbycat.php">Desktop</a></li>
+				      <li><a href="productbycat.php">Laptop</a></li>
+				      <li><a href="productbycat.php">Accessories</a></li>
+				      <li><a href="productbycat.php#">Software</a></li>
+					   <li><a href="productbycat.php">Sports & Fitness</a></li>
+					   <li><a href="productbycat.php">Footwear</a></li>
+					   <li><a href="productbycat.php">Jewellery</a></li>
+					   <li><a href="productbycat.php">Clothing</a></li>
+					   <li><a href="productbycat.php">Home Decor & Kitchen</a></li>
+					   <li><a href="productbycat.php">Beauty & Healthcare</a></li>
+					   <li><a href="productbycat.php">Toys, Kids & Babies</a></li>
     				</ul>
     	
  				</div>
@@ -124,21 +124,21 @@
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="faq.html">Customer Service</a></li>
+						<li><a href="about.php">About Us</a></li>
+						<li><a href="faq.php">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html"><span>Site Map</span></a></li>
-						<li><a href="preview-2.html"><span>Search Terms</span></a></li>
+						<li><a href="contact.php"><span>Site Map</span></a></li>
+						<li><a href="preview-2.php"><span>Search Terms</span></a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
+							<li><a href="contact.php">Sign In</a></li>
+							<li><a href="index.php">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="faq.html">Help</a></li>
+							<li><a href="faq.php">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">

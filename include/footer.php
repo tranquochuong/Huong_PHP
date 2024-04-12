@@ -15,21 +15,21 @@
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Why buy from us</h4>
 						<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="faq.html">Customer Service</a></li>
+						<li><a href="about.php">About Us</a></li>
+						<li><a href="faq.php">Customer Service</a></li>
 						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="contact.html"><span>Site Map</span></a></li>
-						<li><a href="preview.html"><span>Search Terms</span></a></li>
+						<li><a href="contact.php"><span>Site Map</span></a></li>
+						<li><a href="preview.php"><span>Search Terms</span></a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>My account</h4>
 						<ul>
-							<li><a href="contact.html">Sign In</a></li>
-							<li><a href="index.html">View Cart</a></li>
+							<li><a href="contact.php">Sign In</a></li>
+							<li><a href="index.php">View Cart</a></li>
 							<li><a href="#">My Wishlist</a></li>
 							<li><a href="#">Track My Order</a></li>
-							<li><a href="faq.html">Help</a></li>
+							<li><a href="faq.php">Help</a></li>
 						</ul>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
@@ -55,21 +55,11 @@
 		   </div>
      </div>
     </div>
-    <script type="text/javascript">
-		$(document).ready(function() {
-			/*
-			var defaults = {
-	  			containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-	 		};
-			*/
-			
-			$().UItoTop({ easingType: 'easeOutQuart' });
-			
-		});
-	</script>
+
+	<?php
+	 	include_once 'include/script-footer.php';
+	 ?>
+
     <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
     <link href="css/flexslider.css" rel='stylesheet' type='text/css' />
 	  <script defer src="js/jquery.flexslider.js"></script>

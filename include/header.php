@@ -14,17 +14,17 @@
 <script type="text/javascript" src="js/nav-hover.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
-<script type="text/javascript">
-  $(document).ready(function($){
-    $('#dc_mega-menu-orange').dcMegaMenu({rowItems:'4',speed:'fast',effect:'fade'});
-  });
-</script>
+
+<?php
+	include_once 'include/script-header.php'
+?>
+
 </head>
 <body>
   <div class="wrap">
 		<div class="header_top">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt="" /></a>
+				<a href="index.php"><img src="images/logo.png" alt="" /></a>
 			</div>
 			  <div class="header_top_right">
 			    <div class="search_box">
@@ -40,18 +40,18 @@
 							</a>
 						</div>
 			      </div>
-		   <div class="login"><a href="login.html">Login</a></div>
+		   <div class="login"><a href="login.php">Login</a></div>
 		 <div class="clear"></div>
 	 </div>
 	 <div class="clear"></div>
  </div>
 <div class="menu">
 	<ul id="dc_mega-menu-orange" class="dc_mm-orange">
-	  <li><a href="index.html">Home</a></li>
-	  <li><a href="products.html">Products</a> </li>
-	  <li><a href="topbrands.html">Top Brands</a></li>
-	  <li><a href="cart.html">Cart</a></li>
-	  <li><a href="contact.html">Contact</a> </li>
+	  <li><a href="index.php">Home</a></li>
+	  <li><a href="products.php">Products</a> </li>
+	  <li><a href="topbrands.php">Top Brands</a></li>
+	  <li><a href="cart.php">Cart</a></li>
+	  <li><a href="contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
 </div>
