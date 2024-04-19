@@ -43,17 +43,18 @@ include_once '../helpers/format.php';
             return $result;
         }
 
-        public function edit_Category($catName) {
+        public function edit_Category($catName, $id) {
             $catName = $this->fm -> validation($catName);
-
             $catName = mysqli_real_escape_string($this -> db -> link, $catName);
+
+            $id = mysqli_real_escape_string($this -> db -> link, $id);
 
             if(empty($catName)) {
                 $alert = "<span class='danger'>Vui lòng nhập danh mục</span>";
                 return $alert;
             }else {
-                $query = "INSERT INTO tbl_category(catName) VALUES('$catName') ";
-                $result = $this->db->insert(($query));
+                $query = "UPDATE tbl_category SET catName = '$catName' WHERE catId = '$id'";
+                $result = $this->db->update(($query));
 
                 if($result) {
                     $alert = "<span class='success'>Sửa danh mục thành công</span>";
@@ -62,6 +63,20 @@ include_once '../helpers/format.php';
                     $alert = "<span class='danger'>Sửa danh mục không thành công</span>";
                     return $alert;
                 }
+            }
+        }
+
+        public function del_Category($id) {
+            
+            $query = "DELETE FROM tbl_category WHERE catId = '$id'";
+            $result = $this->db->delete(($query));
+
+            if($result) {
+                $alert = "<span class='success'>Xoá thành công!</span>";
+                return $alert;
+            }else {
+                $alert = "<span class='danger'>Xoá không thành công!</span>";
+                return $alert;
             }
         }
 

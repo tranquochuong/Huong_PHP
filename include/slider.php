@@ -13,7 +13,7 @@
 			   </div>			
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						  <a href="preview.php"><img src="images/pic3.png" alt="" / ></a>
+						  <a href="preview.php"><img src="images/pic3.png" alt=""></a>
 					</div>
 					<div class="text list_2_of_1">
 						  <h2>Samsung</h2>

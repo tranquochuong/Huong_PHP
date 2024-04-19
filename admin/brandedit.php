@@ -1,43 +1,43 @@
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/sidebar.php'; ?>
-<?php include '../classes/category.php'; ?>
+<?php include '../classes/brand.php'; ?>
 
 <?php
-$cat = new category();
+$brand = new brand();
 
-if (!isset($_GET['catId']) || $_GET['catId'] == NULL) {
-    echo "<script>window.location = 'catlist.php' </script>";
+if (!isset($_GET['brandId']) || $_GET['brandId'] == NULL) {
+    echo "<script>window.lobrandion = 'brandlist.php' </script>";
 } else {
-    $id = $_GET['catId'];
+    $id = $_GET['brandId'];
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $catName = $_POST['catName'];
+    $brandName = $_POST['brandName'];
 
-    $editCat = $cat -> edit_Category($catName, $id);
+    $editbrand = $brand -> edit_Brand($brandName, $id);
 }
 
 ?>
 <div class="grid_10">
     <div class="box round first grid">
-        <h2>Sửa danh mục</h2>
+        <h2>Sửa thương hiệu</h2>
 
         <div class="block copyblock">
             <?php
-            if (isset($editCat)) {
-                echo $editCat;
+            if (isset($editbrand)) {
+                echo $editbrand;
             }
             ?>
             <?php
-            $get_cat_name = $cat->getcatbyId($id);
-            if ($get_cat_name) {
-                while ($result = $get_cat_name->fetch_assoc()) {
+            $get_brand_name = $brand->getbrandbyId($id);
+            if ($get_brand_name) {
+                while ($result = $get_brand_name->fetch_assoc()) {
             ?>
                     <form action="" method="post">
                         <table class="form">
                             <tr>
                                 <td>
-                                    <input type="text" value="<?php echo $result['catName'] ?>" name="catName" placeholder="Sửa danh mục..." class="medium" />
+                                    <input type="text" value="<?php echo $result['brandName'] ?>" name="brandName" placeholder="Sửa thương hiệu..." class="medium" />
                                 </td>
                             </tr>
                             <tr>

@@ -1,14 +1,14 @@
-﻿<?php include 'inc/header.php';?>
+<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
-<?php include '../classes/category.php';?>
+<?php include '../classes/brand.php';?>
 
 <?php 
-	$cat = new category();
+	$brand = new brand();
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
-		$catName = $_POST['catName'];
+		$brandName = $_POST['brandName'];
 
-		$insertCat = $cat -> insert_Category($catName);
+		$insertBrand = $brand -> insert_Brand($brandName);
 	}
 ?>
         <div class="grid_10">
@@ -17,15 +17,15 @@
                 
                <div class="block copyblock"> 
                <?php 
-                    if(isset($insertCat)) {
-                        echo $insertCat;
+                    if(isset($insertBrand)) {
+                        echo $insertBrand;
                     }
                 ?>
-                 <form action="catadd.php" method="post">
+                 <form action="brandadd.php" method="post">
                     <table class="form">					
                         <tr>
                             <td>
-                                <input type="text" name="catName" placeholder="Thêm danh mục..." class="medium" />
+                                <input type="text" name="brandName" placeholder="Thêm thương hiệu..." class="medium" />
                             </td>
                         </tr>
 						<tr> 

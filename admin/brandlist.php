@@ -1,41 +1,46 @@
-﻿<?php include 'inc/header.php'; ?>
+<?php include 'inc/header.php'; ?>
 <?php include 'inc/sidebar.php'; ?>
-<?php include '../classes/category.php'; ?>
+<?php include '../classes/brand.php'; ?>
 <?php
-$cat = new category();
+$brand = new brand();
 if (isset($_GET['delId'])) {
 	$id = $_GET['delId'];
-	$delCat = $cat->del_Category($id);
+	$delBrand = $brand->del_Brand($id);
 }
 ?>
 
 <div class="grid_10">
 	<div class="box round first grid">
-		<h2>DANH MỤC</h2>
+		<h2>Thương Hiệu</h2>
 		<div class="block">
+        <?php 
+                    if(isset($delBrand)) {
+                        echo $delBrand;
+                    }
+                ?>
 			<table class="data display datatable" id="example">
 				<thead>
 					<tr>
 						<th>STT</th>
-						<th>Tên danh mục</th>
+						<th>Tên Thương Hiệu</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$show_cat = $cat->showCat();
-					if (isset($show_cat)) {
+					$show_brand = $brand->showBrand();
+					if (isset($show_brand)) {
 						$i = 0;
-						while ($result = $show_cat->fetch_assoc()) {
+						while ($result = $show_brand->fetch_assoc()) {
 							$i++;
 					?>
 							<tr class="even gradeC">
 								<td><?php echo $i ?></td>
-								<td><?php echo $result['catName'] ?></td>
+								<td><?php echo $result['brandName'] ?></td>
 								<td>
-									<a href="catedit.php?catId=<?php echo $result['catId'] ?>">Sửa</a>
+									<a href="brandedit.php?brandId=<?php echo $result['brandId'] ?>">Sửa</a>
 									||
-									<a onclick="return confirm('Bạn có muốn xoá không?')" href="?delId=<?php echo $result['catId'] ?>">Xoá</a>
+									<a onclick="return confirm('Bạn có muốn xoá không?')" href="?delId=<?php echo $result['brandId'] ?>">Xoá</a>
 								</td>
 							</tr>
 					<?php
