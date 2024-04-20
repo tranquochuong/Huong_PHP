@@ -1,9 +1,10 @@
 <?php 
-
-include_once '../lib/session.php';
+$filepath = realpath(dirname(__FILE__));
+include ($filepath.'/../lib/session.php');
 Session::checkLogin();
-include_once '../lib/database.php';
-include_once '../helpers/format.php';
+
+include_once ($filepath.'/../lib/database.php');
+include_once ($filepath.'/../helpers/format.php');
 
 
     class adminLogin
