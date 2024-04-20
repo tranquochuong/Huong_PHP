@@ -8,12 +8,22 @@
 <?php
 $product = new product();
 $fm = new Format();
+
+if (isset($_GET['productId'])) {
+	$id = $_GET['productId'];
+	$delProduct = $product->del_Product($id);
+}
 ?>
 
 <div class="grid_10">
 	<div class="box round first grid">
 		<h2>Danh sách sản phẩm</h2>
 		<div class="block">
+		<?php 
+                if(isset($delProduct)) {
+                        echo $delProduct;
+                    }
+                ?>
 			<table class="data display datatable" id="example">
 				<thead>
 					<tr>
@@ -64,7 +74,7 @@ $fm = new Format();
 								</td>
 								<td>
 									<?php
-									echo $result['price']
+									echo  $result['price']
 									?>
 								</td>
 								<td>
@@ -77,9 +87,12 @@ $fm = new Format();
 									?>
 								</td>
 								<td>
-									<img src="uploads/<?php echo $result['image'] ?>" alt="" style="width: 100px;height: 50px;">
+									<img src="uploads/<?php echo $result['image'] ?>" alt="" style="width: 100px;height: 100px;">
 								</td>
-								<td><a href="">Edit</a> || <a href="">Delete</a></td>
+								<td><a href="productedit.php?productId=<?php echo $result['productId'] ?>">Sửa</a> 
+								|| 
+								<a onclick="return confirm('Bạn có muốn xoá không?')" href="?productId=<?php echo $result['productId'] ?>">Xoá</a>
+								</td>
 							</tr>
 					<?php
 						}
