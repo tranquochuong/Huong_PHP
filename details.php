@@ -1,6 +1,5 @@
 <?php
 include_once 'include/header.php';
-include_once 'include/slider.php';
 ?>
 
 <?php
@@ -8,6 +7,11 @@ if (!isset($_GET['proId']) || $_GET['proId'] == NULL) {
 	echo "<script>window.location = '404.php' </script>";
 } else {
 	$id = $_GET['proId'];
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+	$quantity = $_POST['quantity'];
+	$addToCart = $cart ->addToCart($quantity,$id);
 }
 ?>
 
@@ -43,8 +47,8 @@ if (!isset($_GET['proId']) || $_GET['proId'] == NULL) {
 								</p>
 							</div>
 							<div class="add-cart">
-								<form action="cart.php" method="post">
-									<input type="number" class="buyfield" name="" value="1" />
+								<form action="" method="post">
+									<input type="number" class="buyfield" name="quantity" value="1" min="1" />
 									<input type="submit" class="buysubmit" name="submit" value="Buy Now" />
 								</form>
 							</div>
