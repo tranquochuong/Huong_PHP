@@ -180,5 +180,26 @@ include_once ($filepath.'/../helpers/format.php');
         $result = $this->db->select(($query));
         return $result;
        }
+
+       public function get_last_dell(){
+        $query = "SELECT * FROM tbl_product WHERE brandId='2' order by productId desc LIMIT 1";
+        $result = $this->db->select(($query));
+        return $result;
+       }
+       public function get_last_hp(){
+        $query = "SELECT * FROM tbl_product WHERE brandId='1' order by productId desc LIMIT 1";
+        $result = $this->db->select(($query));
+        return $result;
+       }
+       public function get_last_iphone(){
+        $query = "SELECT * FROM tbl_product WHERE brandId='5' order by productId desc LIMIT 1";
+        $result = $this->db->select(($query));
+        return $result;
+       }
+       public function get_last_samsung(){
+        $query = "SELECT * FROM tbl_product WHERE brandId='6' order by productId desc LIMIT 1";
+        $result = $this->db->select(($query));
+        return $result;
+       }
     }
 ?>

@@ -70,9 +70,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
 			?>
 			<div class="rightsidebar span_3_of_1">
 				<h2>Danh mục</h2>
+				<?php
+					$getAllcat = $cat -> showCat_front();
+					if($getAllcat) {
+						while($result_getCat = $getAllcat -> fetch_assoc()){
+				?>
 				<ul>
-					<li><a href="productbycat.php">Mobile Phones</a></li>
+					<li><a href="productbycat.php?catId=<?php echo $result_getCat['catId'] ?>
+					"><?php echo $result_getCat['catName'] ?></a></li>
 				</ul>
+				<?php 
+					}
+				}
+				?>
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 <?php
 include_once 'include/header.php';
-include_once 'include/slider.php';
+// include_once 'include/slider.php';
 ?>
 
 <?php 
@@ -17,7 +17,11 @@ if (isset($_GET['cartid'])) {
 		}
 	}
 ?>
-
+<?php 
+	if(!isset($_GET['id'])) {
+		echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
+	}
+?>
 
 <div class="main">
 	<div class="content">
@@ -27,6 +31,10 @@ if (isset($_GET['cartid'])) {
 				<?php
 					if(isset($update_quantity)){
 						echo $update_quantity;
+					}
+
+					if(isset($delCart)){
+						echo $delCart;
 					}
 				?>
 				<table class="tblone">
@@ -94,7 +102,7 @@ if (isset($_GET['cartid'])) {
 				</table>
 				<?php 
 				}else {
-						echo '<span class="danger">Giỏ hàng của bạn trống !!</span>';
+						echo '<span class="danger">Giỏ hàng của bạn hiện giờ đang trống!! Vui lòng chọn sản phẩm!!</span>';
 				} ?>
 			</div>
 			<div class="shopping">
