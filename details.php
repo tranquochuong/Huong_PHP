@@ -51,10 +51,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
 									<input type="number" class="buyfield" name="quantity" value="1" min="1" />
 									<input type="submit" class="buysubmit" name="submit" value="Buy Now" />
 								</form>
+								<?php
+										if(isset($addToCart)) {
+											echo '<span style="color: red; font-size: 16px">Sản phẩm đã đc thêm vào giỏ hàng thành công</span>';
+										}
+									?>
 							</div>
 						</div>
 						<div class="product-desc">
-							<h2>Product Details</h2>
+							<h2>Chi tiết</h2>
 							<p><?php echo $fm ->textShorten($result_details['productdesc'], 300) ?></p>
 						</div>
 
@@ -64,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
 			}
 			?>
 			<div class="rightsidebar span_3_of_1">
-				<h2>CATEGORIES</h2>
+				<h2>Danh mục</h2>
 				<ul>
 					<li><a href="productbycat.php">Mobile Phones</a></li>
 				</ul>
