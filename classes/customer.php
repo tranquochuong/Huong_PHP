@@ -16,7 +16,8 @@ class customer
         $this->fm = new Format();
     }
 
-    public function insert_Customer($data) {
+    public function insert_Customer($data)
+    {
 
         $name = mysqli_real_escape_string($this->db->link, $data['name']);
         $address = mysqli_real_escape_string($this->db->link, $data['address']);
@@ -50,20 +51,21 @@ class customer
                 }
             }
         }
-    } 
+    }
 
-    public function login_Customer($data) {
+    public function login_Customer($data)
+    {
         $email = mysqli_real_escape_string($this->db->link, $data['email']);
         $password = mysqli_real_escape_string($this->db->link, md5($data['password']));
 
-        if ($email == ''|| $password == '') {
+        if ($email == '' || $password == '') {
             $alert = "<span class='danger'>Email và Mật khẩu không được để trống!!</span>";
             return $alert;
         } else {
             $check_login = "SELECT * FROM tbl_customer WHERE email = '$email' AND password = '$password'";
             $result_check = $this->db->select($check_login);
             if ($result_check != false) {
-                $value = $result_check -> fetch_assoc();
+                $value = $result_check->fetch_assoc();
                 Session::set('customer_login', true);
                 Session::set('customer_id', $value['id']);
                 Session::set('customer_name', $value['name']);
@@ -75,9 +77,37 @@ class customer
         }
     }
 
-    public function show_customer($id) {
+    public function show_customer($id)
+    {
         $query = "SELECT * FROM tbl_customer WHERE id = '$id'";
-        $result= $this->db->select($query);
+        $result = $this->db->select($query);
         return $result;
+    }
+
+    public function edit_customer($data, $id)
+    {
+        $name = mysqli_real_escape_string($this->db->link, $data['name']);
+        $address = mysqli_real_escape_string($this->db->link, $data['address']);
+        $zipcode = mysqli_real_escape_string($this->db->link, $data['zipcode']);
+        $phone = mysqli_real_escape_string($this->db->link, $data['phone']);
+        $email = mysqli_real_escape_string($this->db->link, $data['email']);
+
+        if ($name == "" || $address == "" || $zipcode == "" || $phone == "" || $email == "") {
+            $alert = "<span class='danger'>Các trường không được rỗng</span>";
+            return $alert;
+        } else {
+            $query = "UPDATE tbl_customer 
+                SET name = '$name', address = '$address', zipcode = '$zipcode', phone = '$phone', email = '$email'
+                WHERE id = '$id'";
+            $result = $this->db->update(($query));
+
+            if ($result) {
+                $alert = "<span class='success'>Sửa thông tin thành công</span>";
+                return $alert;
+            } else {
+                $alert = "<span class='danger'>Sửa thông tin không thành công</span>";
+                return $alert;
+            }
+        }
     }
 }

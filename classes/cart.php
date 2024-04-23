@@ -93,5 +93,26 @@ include_once ($filepath.'/../helpers/format.php');
             $result = $this -> db -> select($query);
             return $result;
         }
+
+        public function insertOrder($customer_id) {
+            $sId = session_id();
+            $query = "SELECT * FROM tbl_cart WHERE sId = '$sId'";
+            $get_product = $this -> db -> select($query);
+
+            if($get_product) {
+                while($result = $get_product ->fetch_assoc()){
+                    $productId = $result['productId'];
+                    $productName =$result['productName'];
+                    $price = $result['price'];
+                    $quantity =$result['quantity'];
+                    $image =$result['image'];
+                    $customer_id = $customer_id;
+
+                $query_insertOrder= "INSERT INTO tbl_order(productId, productName, customer_id, quantity, price, image) 
+                                     VALUES('$productId','$productName','$customer_id','$quantity','$price','$image')";
+                $insertOrder = $this->db->insert(($query_insertOrder));
+                }
+            }
+        }
     }
 ?>

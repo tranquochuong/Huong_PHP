@@ -92,7 +92,7 @@ if (isset($_GET['cartid'])) {
 						?></td>
 					</tr>
 					<tr>
-						<th>VAT : </th>
+						<th>VAT (10%): </th>
 						<td><?php echo $subtotal * 0.1 ?></td>
 					</tr>
 					<tr>
@@ -110,7 +110,7 @@ if (isset($_GET['cartid'])) {
 					<a href="index.php"> <img src="images/shop.png" alt="" /></a>
 				</div>
 				<div class="shopright">
-					<a href="login.php"> <img src="images/check.png" alt="" /></a>
+					<a href="payment.php"> <img src="images/check.png" alt="" /></a>
 				</div>
 			</div>
 		</div>

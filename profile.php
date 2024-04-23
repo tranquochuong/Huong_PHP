@@ -38,6 +38,9 @@ if ($check_login == false) {
                     while($result_customer = $get_customer ->fetch_assoc()){
                 ?>
                 <tr>
+                    <td colspan="2"><a href="editprofile.php">Sửa</a></td>
+                </tr>
+                <tr>
                     <td style="font-weight: bold;">Name</td>
                     <td><?php echo $result_customer['name']?></td>
                 </tr>
@@ -58,7 +61,7 @@ if ($check_login == false) {
                     <td><?php echo $result_customer['zipcode']?></td>
                 </tr>
                 <tr>
-                    <td style="font-weight: bold;">Số điện tho</td>
+                    <td style="font-weight: bold;">Số điện thoại</td>
                     <td><?php echo $result_customer['phone']?></td>
                 </tr>
                 <tr>

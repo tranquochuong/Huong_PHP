@@ -2493,3 +2493,60 @@ p.terms {
 	border:1px solid white;
 	padding: 5px
 }
+.wrapper_custorm {
+	width: 50%;
+    border: 1px solid lightcoral;
+    padding: 30px;
+    background-color: bisque;
+	p {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		gap: 50px;
+		margin-bottom: 30px;
+	}
+}
+.payment {
+	text-align: center;
+	font-size: 30px;
+	color: black;
+	font-weight: 600;
+	margin-bottom: 50px;
+}
+.payment_href {
+	padding: 20px 40px;
+    background-color: red;
+    border-radius: 5px;
+	font-size: 20px;
+	color: white;
+}
+.payment_href:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+.box-left {
+	width: 50%;
+    float: left;
+}
+.box-right {
+	width: 48%;
+    float: right;
+    border: 1px solid #d5d5d5;
+}
+.content-payment {
+	display: flex;
+	gap: 20px;
+}
+.submit_order {
+	padding: 20px 40px;
+    background-color: red;
+    border-radius: 5px;
+	font-size: 20px;
+	color: white;
+	border: none;
+	margin: 20px;
+}
+.submit_order:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
