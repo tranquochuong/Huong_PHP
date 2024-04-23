@@ -199,7 +199,7 @@ input[type="number"] {
 	width:340px;
 }
 .register_account form select{
-	width:360px;
+	width:340px;
 	color:#666;
 }
 .register_account form input[type="text"].code{
@@ -2484,4 +2484,12 @@ p.terms {
 .danger {
 	color: red;
 	font-size: 25px;
+}
+.btn {
+	font-size: 20px;
+	background-color: black;	
+	color:white;
+	border-radius:5px;
+	border:1px solid white;
+	padding: 5px
 }
