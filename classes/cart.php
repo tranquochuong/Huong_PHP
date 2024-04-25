@@ -29,11 +29,12 @@ include_once ($filepath.'/../helpers/format.php');
             $price = $result['price'];
             $image = $result['image'];
 
-            // $checkcart = "SELECT * FROM tbl_cart WHERE productId = '$id' AND sId = '$sId'";
-            // if($checkcart) {
-            //     $msg = "Sản phẩm đã tồn tại trong giỏ hàng!";
-            //     return $msg;
-            // }else {
+            $checkcart = "SELECT * FROM tbl_cart WHERE productId = '$id' AND sId = '$sId'";
+            $result_cart = $this -> db -> select($checkcart);
+            if($result_cart) {
+                $msg = "Sản phẩm đã tồn tại trong giỏ hàng!";
+                return $msg;
+            }else {
                 $query_insertCart = "INSERT INTO tbl_cart(productId, sId, productName, price, quantity, image ) VALUES('$id','$sId','$productName','$price','$quantity','$image')";
                 $insertCart = $this->db->insert(($query_insertCart));
 
@@ -42,7 +43,7 @@ include_once ($filepath.'/../helpers/format.php');
                 }else {
                     header('Location:404.php');
                 }
-            // }
+            }
         }
 
         public function get_product_cart() {
@@ -103,8 +104,8 @@ include_once ($filepath.'/../helpers/format.php');
                 while($result = $get_product ->fetch_assoc()){
                     $productId = $result['productId'];
                     $productName =$result['productName'];
-                    $price = $result['price'];
                     $quantity =$result['quantity'];
+                    $price = $result['price'] * $quantity;
                     $image =$result['image'];
                     $customer_id = $customer_id;
 
@@ -112,6 +113,83 @@ include_once ($filepath.'/../helpers/format.php');
                                      VALUES('$productId','$productName','$customer_id','$quantity','$price','$image')";
                 $insertOrder = $this->db->insert(($query_insertOrder));
                 }
+            }
+        }
+
+        public function getAmountprice($customer_id) {
+            $query = "SELECT * FROM tbl_order WHERE customer_Id = '$customer_id'";
+            $result = $this -> db -> select($query);
+            return $result;
+        }
+
+        public function get__cart_ordered($customer_id) {
+            $query = "SELECT * FROM tbl_order WHERE customer_Id = '$customer_id'";
+            $result = $this -> db -> select($query);
+            return $result;
+        }
+
+        public function check_order($customer_id) {
+            $query = "SELECT * FROM tbl_order WHERE customer_id = '$customer_id'";
+            $result = $this -> db -> select($query);
+            return $result;
+        }
+
+        public function getInboxCart(){
+            $query = "SELECT * FROM tbl_order ORDER BY date_order";
+            $result = $this -> db -> select($query);
+            return $result;
+        }
+
+        public function statusOrder($id,$time,$price){
+            $id = mysqli_real_escape_string($this -> db -> link, $id);
+            $time = mysqli_real_escape_string($this -> db -> link, $time);
+            $price = mysqli_real_escape_string($this -> db -> link, $price);
+
+            $query = "UPDATE tbl_order SET status = '1' WHERE id = '$id' AND date_order = '$time' AND price ='$price'";
+            $result  = $this ->db ->update($query);
+
+            if($result) {
+                $msg = "<span class='success'>Đơn hàng đã xử lý!</span>";
+                return $msg;
+            }else {
+                $msg = "<span class='danger'>Đơn hàng đang xử lý!</span>";
+                return $msg;
+            }
+        }
+
+        public function delOrder($id,$time,$price) {
+            $id = mysqli_real_escape_string($this -> db -> link, $id);
+            $time = mysqli_real_escape_string($this -> db -> link, $time);
+            $price = mysqli_real_escape_string($this -> db -> link, $price);
+
+            $query = "DELETE FROM tbl_order WHERE id = '$id' AND date_order = '$time' AND price ='$price'";
+            $result = $this -> db -> delete($query);
+            return $result;
+
+            if($result) {
+                $msg = "<span class='success'>Đơn hàng đã xoá thành công!</span>";
+                return $msg;
+            }else {
+                $msg = "<span class='danger'>Đơn chưa được xoá thành công!</span>";
+                return $msg;
+            }
+        }
+
+        public function confirmCustomer($id,$time,$price) {
+            $id = mysqli_real_escape_string($this -> db -> link, $id);
+            $time = mysqli_real_escape_string($this -> db -> link, $time);
+            $price = mysqli_real_escape_string($this -> db -> link, $price);
+
+            $query = "UPDATE tbl_order SET status = '2' WHERE customer_Id = '$id' AND date_order = '$time' AND price ='$price'";
+            $result  = $this ->db ->update($query);
+            return $result;
+
+            if($result) {
+                $msg = "<span class='success'>Nhận hàng thành công!</span>";
+                return $msg;
+            }else {
+                $msg = "<span class='danger'>Nhận hàng không thành công!</span>";
+                return $msg;
             }
         }
     }

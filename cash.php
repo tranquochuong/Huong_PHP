@@ -1,6 +1,12 @@
 <?php
 include_once 'include/header.php';
 ?>
+<?php 
+	$check_login = Session::get('customer_login');
+	if ($check_login == false) {
+		header('Location:login.php');
+	}
+?>
 
 <?php
 if (isset($_GET['orderid']) && $_GET['orderid'] == 'order') {

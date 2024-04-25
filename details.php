@@ -4,15 +4,26 @@ include_once 'include/header.php';
 
 <?php
 if (!isset($_GET['proId']) || $_GET['proId'] == NULL) {
-	echo "<script>window.location = '404.php' </script>";
+	// echo "<script>window.location = '404.php' </script>";
 } else {
 	$id = $_GET['proId'];
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-	$quantity = $_POST['quantity'];
-	$addToCart = $cart ->addToCart($quantity,$id);
+$customer_id = Session::get('customer_id');
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['compare'])){
+	
+	$productid = $_POST['productid'];
+
+	$insertCompare = $product ->insertCompare($productid,$customer_id);
 }
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+	
+	$quantity = $_POST['quantity'];
+
+	$addToCart = $cart ->addToCart($quantity, $id);
+}
+
 ?>
 
 <div class="main">
@@ -49,13 +60,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
 							<div class="add-cart">
 								<form action="" method="post">
 									<input type="number" class="buyfield" name="quantity" value="1" min="1" />
-									<input type="submit" class="buysubmit" name="submit" value="Buy Now" />
+									<input type="submit" class="buysubmit" name="submit" value="Mua hàng" />
 								</form>
 								<?php
 										if(isset($addToCart)) {
-											echo '<span style="color: red; font-size: 16px">Sản phẩm đã đc thêm vào giỏ hàng thành công</span>';
+											echo $addToCart;
 										}
 									?>
+							</div>
+							<div class="add-cart">
+							<form action="" method="POST">
+									<!-- <a href="?compare=" class="buysubmit">So sánh sản phẩm</a> -->
+									<input type="hidden" name="productid" value="<?php echo $result_details['productId'] ?>" >
+									<input type="submit" class="buysubmit" name="compare" value="So sánh sản phẩm" /><br>
+								<?php 
+									if(isset($insertCompare)) {
+										echo $insertCompare;
+									}
+								?>
+								</form>
 							</div>
 						</div>
 						<div class="product-desc">

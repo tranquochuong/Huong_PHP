@@ -9,30 +9,30 @@ include_once 'include/header.php';
 	}
 ?>
 <?php 
-if (isset($_GET['cartid'])) {
-	$cartId = $_GET['cartid'];
-	$delCart = $cart->del_Cart($cartId);
-}
-	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-		$cartId = $_POST['cartId'];
-		$quantity = $_POST['quantity'];
-		$update_quantity = $cart ->update_quantity_cart($quantity,$cartId);
-		if($quantity = 0) {
-			$delCart = $cart->del_Cart($cartId);
-		}
-	}
+// if (isset($_GET['cartid'])) {
+// 	$cartId = $_GET['cartid'];
+// 	$delCart = $cart->del_Cart($cartId);
+// }
+// 	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+// 		$cartId = $_POST['cartId'];
+// 		$quantity = $_POST['quantity'];
+// 		$update_quantity = $cart ->update_quantity_cart($quantity,$cartId);
+// 		if($quantity = 0) {
+// 			$delCart = $cart->del_Cart($cartId);
+// 		}
+// 	}
 ?>
 <?php 
-	if(!isset($_GET['id'])) {
-		echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
-	}
+	// if(!isset($_GET['id'])) {
+	// 	echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
+	// }
 ?>
 
 <div class="main">
 	<div class="content">
 		<div class="cartoption">
 			<div class="cartpage">
-				<h2 style="font-size: 50px; color:lightblue;display:inline;">Giỏ hàng của bạn</h2><br>
+				<h2 style="font-size: 50px; color:lightblue;display:inline;">So sánh sản phẩm</h2><br>
 				<?php
 					if(isset($update_quantity)){
 						echo $update_quantity;
