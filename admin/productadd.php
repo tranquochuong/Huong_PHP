@@ -4,24 +4,24 @@
 <?php include '../classes/brand.php'; ?>
 <?php include '../classes/product.php'; ?>
 
-<?php 
-	$product = new product();
+<?php
+$product = new product();
 
-	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
-		$insertProduct = $product -> insert_Product($_POST,$_FILES);
-	}
+    $insertProduct = $product->insert_Product($_POST, $_FILES);
+}
 ?>
 
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Thêm sản phẩm</h2>
         <div class="block">
-        <?php 
-                    if(isset($insertProduct)) {
-                        echo $insertProduct;
-                    }
-                ?>
+            <?php
+            if (isset($insertProduct)) {
+                echo $insertProduct;
+            }
+            ?>
             <!-- enctype="multipart/form-data"  khi thêm hình ảnh phải có-->
             <form action="productadd.php" method="post" enctype="multipart/form-data">
                 <table class="form">
@@ -106,7 +106,7 @@
                             <label>Tải ảnh</label>
                         </td>
                         <td>
-                            <input name="image" type="file" style="width: 50%"/>
+                            <input name="image" type="file" style="width: 50%" />
                         </td>
                     </tr>
 

@@ -3,7 +3,12 @@
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Slider List</h2>
-        <div class="block">  
+        <div class="block">
+		<?php 
+                    if(isset($insertProduct)) {
+                        echo $insertProduct;
+                    }
+        ?>  
             <table class="data display datatable" id="example">
 			<thead>
 				<tr>

@@ -18,6 +18,7 @@ $cat = new category();
 $product = new product();
 $brand = new brand();
 $customer = new customer();
+$slider = new slider();
 ?>
 <?php
 header("Cache-Control: no-cache, must-revalidate");
@@ -85,7 +86,10 @@ header("Cache-Control: max-age=2592000");
 			</div>
 			<?php
 			if (isset($_GET['customer_id'])) {
-				$delCart = $cart -> dell_all_cart();
+				$delCart = $cart->dell_all_cart();
+				$customer_id = $_GET['customer_id'];
+				$delCompare = $product->dell_all_compare($customer_id);
+				$delCompare = $product->dell_all_wishlist($customer_id);
 				Session::destroy();
 			}
 			?>
@@ -107,26 +111,37 @@ header("Cache-Control: max-age=2592000");
 				<li><a href="index.php">Home</a></li>
 				<li><a href="products.php">Products</a> </li>
 				<li><a href="topbrands.php">Top Brands</a></li>
-				<?php 
-				$check_cart = $cart ->check_item_cart();
+				<?php
+				$check_cart = $cart->check_item_cart();
 				if ($check_cart == false) {
 					echo '';
 				} else {
 					echo '<li><a href="cart.php">Cart</a></li>';
 				}
 				?>
-				<?php 
+				<?php
 				$customer_id = Session::get('customer_id');
-				$check_order = $cart ->check_order($customer_id);
+				$check_order = $cart->check_order($customer_id);
 				if ($check_order == false) {
 					echo '';
 				} else {
 					echo '<li><a href="orderdetails.php">Ordered</a></li>';
 				}
 				?>
-				<li><a href="compare.php">Compare</a> </li>
+				<?php
+				$check_login = Session::get('customer_login');
+				if ($check_login) {
+					echo '<li><a href="compare.php">Compare</a> </li></li>';
+				}
+				?>
+				<?php
+				$check_login = Session::get('customer_login');
+				if ($check_login) {
+					echo '<li><a href="wishlist.php">Wishlist</a> </li></li>';
+				}
+				?>
 				<li><a href="contact.php">Contact</a> </li>
-				<?php 
+				<?php
 				$check_login = Session::get('customer_login');
 				if ($check_login == false) {
 					echo '';

@@ -234,12 +234,95 @@ class product
             $insertCompare = $this->db->insert(($query_insertCompare));
 
             if ($insertCompare) {
-                $alert = "<span class='success'>Thêm vào so sánh thành công</span>";
-                return $alert;
+                header('Location:compare.php');
             } else {
                 $alert = "<span class='danger'>Thêm vào so sánh không thành công</span>";
                 return $alert;
             }
         }
+    }
+
+    public function get_product_compare($customer_id)
+    {
+        $query = "SELECT * FROM tbl_compare WHERE customer_Id = '$customer_id' order by id desc";
+        $result = $this->db->select(($query));
+        return $result;
+    }
+
+    public function del_Compare($productid)
+    {
+        $query = "DELETE FROM tbl_compare WHERE productId = '$productid'";
+        $result = $this->db->delete(($query));
+
+        if ($result) {
+            $alert = "<span class='success'> Xoá sản phẩm thành công</span>";
+            return $alert;
+        } else {
+            $alert = "<span class='danger'>Xoá sản phẩm không thành công</span>";
+            return $alert;
+        }
+    }
+
+    public function dell_all_compare($customer_id) {
+        $query = "DELETE FROM tbl_compare WHERE customer_Id = '$customer_id'";
+        $result = $this -> db -> delete($query);
+        return $result;
+    }
+
+    public function insertWishlist($productid, $customer_id)
+    {
+        $productid = mysqli_real_escape_string($this->db->link, $productid);
+        $customer_id = mysqli_real_escape_string($this->db->link, $customer_id);
+
+        $checkWishlist = "SELECT * FROM tbl_wishlist WHERE productId = '$productid' AND customer_Id = '$customer_id'";
+        $result_wishlist = $this ->db ->select($checkWishlist);
+        if ($result_wishlist) {
+            $msg = "<span class='danger'>Sản phẩm đã được thêm vào yêu thích!</span>";
+            return $msg;
+        } else {
+            $query = "SELECT * FROM tbl_product WHERE productId ='$productid'";
+            $result = $this->db->select($query)->fetch_assoc();
+
+            $productName = $result['productName'];
+            $price = $result['price'];
+            $image = $result['image'];
+
+            $query_insertWishlist = "INSERT INTO tbl_wishlist(customer_Id, productId, productName, price,  image ) VALUES('$customer_id','$productid','$productName','$price','$image')";
+            $inserWishlist = $this->db->insert(($query_insertWishlist));
+
+            if ($inserWishlist) {
+                header('Location:wishlist.php');
+            } else {
+                $alert = "<span class='danger'>Thêm vào yêu thích không thành công</span>";
+                return $alert;
+            }
+        }
+    }
+
+    public function get_product_wishlist($customer_id)
+    {
+        $query = "SELECT * FROM tbl_wishlist WHERE customer_Id = '$customer_id' order by id desc";
+        $result = $this->db->select(($query));
+        return $result;
+    }
+
+    public function del_Wishlist($productid)
+    {
+        $query = "DELETE FROM tbl_wishlist WHERE productId = '$productid'";
+        $result = $this->db->delete(($query));
+
+        if ($result) {
+            $alert = "<span class='success'> Xoá sản phẩm thành công</span>";
+            return $alert;
+        } else {
+            $alert = "<span class='danger'>Xoá sản phẩm không thành công</span>";
+            return $alert;
+        }
+    }
+
+    public function dell_all_wishlist($customer_id) {
+        $query = "DELETE FROM tbl_wishlist WHERE customer_Id = '$customer_id'";
+        $result = $this -> db -> delete($query);
+        return $result;
     }
 }

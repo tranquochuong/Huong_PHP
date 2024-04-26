@@ -61,7 +61,7 @@ if (isset($_GET['cartid'])) {
 							<tr>
 								<td><?php echo $result_product_cart['productName'] ?></td>
 								<td><img src="admin/uploads/<?php echo $result_product_cart['image'] ?>" alt="" /></td>
-								<td><?php echo $result_product_cart['price']  ?></td>
+								<td><?php echo $fm ->format_currency($result_product_cart['price']).' '.'VNĐ' ?></td>
 								<td>
 									<form action="" method="post">
 									<input type="hidden" name="cartId" min='0' value="<?php echo $result_product_cart['cartId'] ?>" />
@@ -72,7 +72,7 @@ if (isset($_GET['cartid'])) {
 								<td>
 									<?php
 									$total = $result_product_cart['price'] * $result_product_cart['quantity'];
-									echo $total;
+									echo $fm->format_currency($total).' '.'VNĐ';
 									?>
 								</td>
 								<td><a onclick="return confirm('Bạn có muốn xoá không?')" href="?cartid=<?php echo $result_product_cart['cartId'] ?>">X</a></td>
@@ -91,18 +91,18 @@ if (isset($_GET['cartid'])) {
 					<tr>
 						<th>Sub Total : </th>
 						<td><?php 
-							echo $subtotal;
+							echo $fm->format_currency($subtotal).' '.'VNĐ';
 							Session::set('sum',$subtotal);
 							Session::set('qty',$qty);
 						?></td>
 					</tr>
 					<tr>
 						<th>VAT (10%): </th>
-						<td><?php echo $subtotal * 0.1 ?></td>
+						<td><?php echo $fm->format_currency($subtotal * 0.1).' '.'VNĐ' ?></td>
 					</tr>
 					<tr>
 						<th>Grand Total :</th>
-						<td><?php echo ($subtotal + $subtotal * 0.1) ?></td>
+						<td><?php echo $fm->format_currency(($subtotal + $subtotal * 0.1)).' '.'VNĐ' ?></td>
 					</tr>
 				</table>
 				<?php 

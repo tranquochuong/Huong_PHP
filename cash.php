@@ -58,12 +58,12 @@ if (isset($_GET['orderid']) && $_GET['orderid'] == 'order') {
                                     <tr>
                                         <td><?php echo $i ?></td>
                                         <td><?php echo $result_product_cart['productName'] ?></td>
-                                        <td><?php echo $result_product_cart['price'] . ' ' . 'VNĐ' ?></td>
+                                        <td><?php echo $fm->format_currency($result_product_cart['price']).' ' .'VNĐ' ?></td>
                                         <td><?php echo $result_product_cart['quantity']  ?></td>
                                         <td>
                                             <?php
                                             $total = $result_product_cart['price'] * $result_product_cart['quantity'];
-                                            echo $total . ' ' . 'VNĐ';
+                                            echo $fm->format_currency($total).' '. 'VNĐ';
                                             ?>
                                         </td>
                                     </tr>
@@ -88,11 +88,11 @@ if (isset($_GET['orderid']) && $_GET['orderid'] == 'order') {
                                 </tr>
                                 <tr>
                                     <th>VAT (10%) : </th>
-                                    <td><?php echo $subtotal * 0.1 . ' ' . 'VNĐ' ?></td>
+                                    <td><?php echo $fm->format_currency($subtotal*0.1).' '.'VNĐ' ?></td>
                                 </tr>
                                 <tr>
                                     <th>Grand Total :</th>
-                                    <td><?php echo ($subtotal + $subtotal * 0.1) . ' ' . 'VNĐ' ?></td>
+                                    <td><?php echo $fm->format_currency(($subtotal + $subtotal * 0.1)).' '.'VNĐ' ?></td>
                                 </tr>
                             </table>
                         <?php

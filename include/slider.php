@@ -9,12 +9,12 @@
 				?>
 					<div class="listview_1_of_2 images_1_of_2">
 						<div class="listimg listimg_2_of_1">
-							 <a href="details.php?proId=<?php echo $result['productId'] ?>"> <img src="admin/uploads/<?php echo $result_dell['image'] ?>" alt="" /></a>
+							 <a href="details.php?productid=<?php echo $result['productId'] ?>"> <img src="admin/uploads/<?php echo $result_dell['image'] ?>" alt="" /></a>
 						</div>
 						<div class="text list_2_of_1">
 							<h2><?php echo $result_dell['productName'] ?></h2>
 							<p><?php echo $result_dell['productdesc'] ?></p>
-							<div class="button"><span><a href="details.php?proId=<?php echo $result_dell['productId'] ?>">Add to cart</a></span></div>
+							<div class="button"><span><a href="details.php?productid=<?php echo $result_dell['productId'] ?>">Add to cart</a></span></div>
 					   </div>
 				   </div>	
 				<?php
@@ -28,12 +28,12 @@
 				?>
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						  <a href="details.php?proId=<?php echo $result['productId'] ?>"><img src="admin/uploads/<?php echo $result_hp['image'] ?>" alt=""></a>
+						  <a href="details.php?productid=<?php echo $result['productId'] ?>"><img src="admin/uploads/<?php echo $result_hp['image'] ?>" alt=""></a>
 					</div>
 					<div class="text list_2_of_1">
 						  <h2><?php echo $result_hp['productName'] ?></h2>
 						  <p><?php echo $result_hp['productdesc'] ?></p>
-						  <div class="button"><span><a href="details.php?proId=<?php echo $result_hp['productId'] ?>">Add to cart</a></span></div>
+						  <div class="button"><span><a href="details.php?productid=<?php echo $result_hp['productId'] ?>">Add to cart</a></span></div>
 					</div>
 					<?php
 						}
@@ -50,12 +50,12 @@
 				?>
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						 <a href="details.php?proId=<?php echo $result['productId'] ?>"> <img src="admin/uploads/<?php echo $result_iphone['image'] ?>" alt="" /></a>
+						 <a href="details.php?productid=<?php echo $result['productId'] ?>"> <img src="admin/uploads/<?php echo $result_iphone['image'] ?>" alt="" /></a>
 					</div>
 				    <div class="text list_2_of_1">
 						<h2><?php echo $result_iphone['productName'] ?></h2>
 						<p><?php echo $result_iphone['productdesc'] ?></p>
-						<div class="button"><span><a href="details.php?proId=<?php echo $result_iphone['productId'] ?>">Add to cart</a></span></div>
+						<div class="button"><span><a href="details.php?productid=<?php echo $result_iphone['productId'] ?>">Add to cart</a></span></div>
 				   </div>
 			   </div>
 			   <?php
@@ -71,12 +71,12 @@
 				?>			
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						  <a href="details.php?proId=<?php echo $result['productId'] ?>"><img src="admin/uploads/<?php echo $result_samsung['image'] ?>" alt="" /></a>
+						  <a href="details.php?productid=<?php echo $result['productId'] ?>"><img src="admin/uploads/<?php echo $result_samsung['image'] ?>" alt="" /></a>
 					</div>
 					<div class="text list_2_of_1">
 						  <h2><?php echo $result_samsung['productName'] ?></h2>
 						  <p><?php echo $result_samsung['productdesc'] ?></p>
-						  <div class="button"><span><a href="details.php?proId=<?php echo $result_samsung['productId'] ?>">Add to cart</a></span></div>
+						  <div class="button"><span><a href="details.php?productid=<?php echo $result_samsung['productId'] ?>">Add to cart</a></span></div>
 					</div>
 				</div>
 				<?php
