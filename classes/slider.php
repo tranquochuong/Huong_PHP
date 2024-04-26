@@ -51,10 +51,54 @@ class slider
         }
     }
 
-    public function getproductbyId($id)
+    public function getsliderbyId($id)
     {
-        $query = "SELECT * FROM tbl_slider WHERE id = '$id'";
+        $query = "SELECT * FROM tbl_slider WHERE sliderId = '$id'";
         $result = $this->db->select(($query));
         return $result;
     }
+
+    public function showSlider() {
+        $query = "SELECT * FROM tbl_slider order by sliderId desc";
+        $result = $this->db->select(($query));
+        return $result;
+    }
+
+            // --------Front End ---------------
+    public function showAllSlider() {
+        $query = "SELECT sliderImage FROM tbl_slider WHERE type ='1' order by sliderId desc";
+        $result = $this->db->select(($query));
+        return $result;
+    }
+
+    public function del_Slider($id)
+    {
+
+        $query = "DELETE FROM tbl_slider WHERE sliderId = '$id'";
+        $result = $this->db->delete(($query));
+
+        if ($result) {
+            $alert = "<span class='success'>Xoá Slider thành công!</span>";
+            return $alert;
+        } else {
+            $alert = "<span class='danger'>Xoá Slider không thành công!</span>";
+            return $alert;
+        }
+    }
+
+    
+    public function updateType($id,$type) {
+        $type = mysqli_real_escape_string($this->db->link, $type);
+        $query = "UPDATE tbl_slider SET type ='$type' WHERE sliderId = '$id'";
+        $result  = $this ->db ->update($query);
+
+        if($result) {
+            $msg = "<span class='success'>Cập nhật type thành công!</span>";
+            return $msg;
+        }else {
+            $msg = "<span class='danger'>Cập nhật type Không thành công!</span>";
+            return $msg;
+        }
+    }
+
 }

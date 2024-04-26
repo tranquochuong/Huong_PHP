@@ -39,7 +39,7 @@ if (!isset($_GET['catId']) || $_GET['catId'] == NULL) {
 						<h2><?php echo $result_cat_product['productName'] ?></h2>
 						<p><?php echo $result_cat_product['productdesc'] ?></p>
 						<p><span class="price"><?php echo $result_cat_product['price'] ?></span></p>
-						<div class="button"><span><a href="details.php" class="details">Details</a></span></div>
+						<div class="button"><span><a href="details.php" class="details">Chi tiêt</a></span></div>
 					</div>
 			<?php
 				}

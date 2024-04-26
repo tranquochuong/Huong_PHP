@@ -87,7 +87,7 @@ if (isset($_GET['productId'])) {
 									?>
 								</td>
 								<td>
-									<img src="uploads/<?php echo $result['image'] ?>" alt="" style="width: 100px;height: 100px;">
+									<img src="uploads/<?php echo $result['image']?>" alt="" style="width: 100px;height: 100px;">
 								</td>
 								<td><a href="productedit.php?productId=<?php echo $result['productId'] ?>">Sửa</a> 
 								|| 

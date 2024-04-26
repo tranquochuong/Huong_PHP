@@ -325,4 +325,13 @@ class product
         $result = $this -> db -> delete($query);
         return $result;
     }
+
+    public function search_Product($tukhoa) {
+
+        $tukhoa = $this->fm -> validation($tukhoa);
+
+        $query = "SELECT * FROM tbl_product WHERE productName LIKE '%$tukhoa%'";
+        $result = $this->db->select(($query));
+        return $result;
+    }
 }
