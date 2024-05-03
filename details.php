@@ -31,6 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 	$addToCart = $cart->addToCart($quantity, $id);
 }
 
+if((isset($_POST['submit_comment'])) && (isset($_POST['submit_comment']))) {
+	$id = $_GET['productid'];
+	$comment = $customer -> insert_comment($id);
+}
+
 ?>
 
 <div class="main">
@@ -118,7 +123,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 							<h2>Chi tiết</h2>
 							<p><?php echo $fm->textShorten($result_details['productdesc'], 300) ?></p>
 						</div>
-
 					</div>
 			<?php
 				}
@@ -139,6 +143,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 					}
 				}
 				?>
+			</div>
+		</div>
+		<div class="comment" style="margin: 20px;">
+			<div class="row">
+			 <?php
+			 	if(isset($comment)){
+					echo $comment;
+				}
+			 ?>
+				<div class="col-md-8">
+					<h4>Ý kiến sản phẩm</h4>
+					<form action="" method="POST">
+						<p><input type="text" placeholder="Họ Tên" name="hoten" class="form-control"></p>
+						<p><textarea rows="5" style="resize: none;" name="comment" placeholder="Nhập bình luận..." class="form-control"></textarea></p>
+						<p><input type="submit" class="btn btn-success" name="submit_comment" value="Gửi"></p>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

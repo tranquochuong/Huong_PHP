@@ -7,6 +7,18 @@ if ($check_login == false) {
     header('Location:login.php');
 }
 ?>
+<?php
+// if (!isset($_GET['proId']) || $_GET['proId'] == NULL) {
+// 	echo "<script>window.location = '404.php' </script>";
+// } else {
+// 	$id = $_GET['proId'];
+// }
+
+// if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+// 	$quantity = $_POST['quantity'];
+// 	$addToCart = $cart ->addToCart($quantity,$id);
+// }
+?>
 
 <div class="main">
     <div class="content">
@@ -21,7 +33,7 @@ if ($check_login == false) {
                     <h3 class="payment">Chọn phương thức thanh toán</h3>
                     <p>                    
                         <a class="payment_href" href="cash_pay.php">Tiền mặt</a>
-                        <a class="payment_href" href="donhangthanhtoanonline.php">Thanh toán Online</a>
+                        <a class="payment_href" href="online_pay.php">Thanh toán Online</a>
                     </p>
                     <div class="clear"></div>
                     <span>

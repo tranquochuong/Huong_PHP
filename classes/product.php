@@ -91,8 +91,8 @@ class product
         } else {
             if (!empty($file_name)) {
                 // Người dùng đổi ảnh
-                if ($file_size > 2048) {
-                    $alert = "<span class='danger'>Kích thước ảnh phải nhỏ hơn 2MB</span>";
+                if ($file_size > 20480) {
+                    $alert = "<span class='danger'>Kích thước ảnh phải nhỏ hơn 20MB</span>";
                     return $alert;
                 } elseif (is_array($file_ext, $permited) == false) {
                     $alert = "<span class='danger'> Bạn chỉ có thể tải ảnh theo định dạng: -" . implode(',', $permited) . "</span>";
@@ -171,8 +171,22 @@ class product
     }
 
     public function getproduct_new()
+    {           
+        $get_product_for_page = 4;
+        if(!isset($_GET['page'])){
+            $page = 1;
+        }else {
+            $page = $_GET['page'];
+        }
+        $get_product_page = ($page - 1)*$get_product_for_page;
+        $query = "SELECT * FROM tbl_product order by productId desc LIMIT $get_product_page,$get_product_for_page ";
+        $result = $this->db->select(($query));
+        return $result;
+    }
+
+    public function getallproduct()
     {
-        $query = "SELECT * FROM tbl_product order by productId desc limit 4";
+        $query = "SELECT * FROM tbl_product";
         $result = $this->db->select(($query));
         return $result;
     }

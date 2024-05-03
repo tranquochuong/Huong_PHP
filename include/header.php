@@ -44,6 +44,7 @@ header("Cache-Control: max-age=2592000");
 	<script type="text/javascript" src="js/nav-hover.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 	<?php
 	include_once 'include/script-header.php'
@@ -67,7 +68,7 @@ header("Cache-Control: max-age=2592000");
 				<div class="shopping_cart">
 					<div class="cart">
 						<a href="#" title="View my shopping cart" rel="nofollow">
-							<span class="cart_title">Cart</span>
+							<span class="cart_title">Giỏ hàng</span>
 							<span class="no_product">
 								<?php
 
@@ -75,9 +76,9 @@ header("Cache-Control: max-age=2592000");
 								if ($check_item_card) {
 									$sum = Session::get("sum");
 									$qty = Session::get("qty");
-									echo $sum . ' ' . 'đ' . '-' . 'Qty' . ' ' . $qty;
+									echo '('.$fm->format_currency($sum) . ' ' . 'vnd' . '-' . 'SL' . ' ' . $qty.')';
 								} else {
-									echo 'Empty';
+									echo '(Trống)';
 								}
 								?>
 							</span>
@@ -98,9 +99,9 @@ header("Cache-Control: max-age=2592000");
 				<?php
 				$check_login = Session::get('customer_login');
 				if ($check_login == false) {
-					echo '<a href="login.php">Login</a></div>';
+					echo '<a href="login.php">Đăng nhập</a></div>';
 				} else {
-					echo '<a href="?customer_id=' . Session::get('customer_id') . '">Logout</a></div>';
+					echo '<a href="?customer_id=' . Session::get('customer_id') . '">Đăng xuất</a></div>';
 				}
 				?>
 				<div class="clear"></div>

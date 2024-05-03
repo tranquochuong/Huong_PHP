@@ -110,4 +110,27 @@ class customer
             }
         }
     }
+
+    public function insert_comment($id)
+    {  
+        $fullname = $_POST['hoten'];
+        $comment = $_POST['comment'];
+
+        if ($fullname == "" || $comment == "") {
+            $alert = "<span class='danger'>Các trường không được rỗng</span>";
+            return $alert;
+        } else {
+            $query = "INSERT INTO tbl_comment(fullname, comment,productId)
+                          VALUES('$fullname','$comment','$id')";
+            $result = $this->db->insert(($query));
+
+            if ($result) {
+                $alert = "<span class='success'>Thêm bình luận thành công</span>";
+                return $alert;
+            } else {
+                $alert = "<span class='danger'>Thêm bình luận không thành công</span>";
+                return $alert;
+            }
+        }
+    }
 }
